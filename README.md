@@ -1,36 +1,35 @@
-🏦 Projet Data : Analyse Exploratoire & Modélisation pour une Campagne de Marketing Bancaire
+# 🏦 Analyse Marketing & Prédiction de Souscription Bancaire (R)
 
-📋 Contexte du projet
-Dans un secteur bancaire très concurrentiel, la mise en place de campagnes marketing efficaces est essentielle. Ce projet s'appuie sur les données de campagnes de marketing direct (appels téléphoniques) d'une institution bancaire portugaise. L'objectif principal est d'utiliser l'exploration de données et les statistiques pour décider quels clients cibler en priorité pour la souscription d'un dépôt à terme (variable y).
+## 🎯 Objectif du Projet
+Ce projet vise à analyser et prédire le comportement des clients suite à des campagnes de démarchage téléphonique pour un dépôt à terme. L'enjeu est d'identifier les profils les plus susceptibles de souscrire afin d'optimiser le **ROI (Retour sur Investissement)** des campagnes marketing.
 
-🎯 Objectifs
-Explorer et préparer les données (traitement des valeurs manquantes et aberrantes).
-Extraire des insights stratégiques via des analyses univariées, bivariées et des tests statistiques (Khi-deux, corrélations de Pearson) .
-Prédire le comportement client via un modèle de Machine Learning simple et interprétable (K-Nearest Neighbors - KNN).
-Fournir des recommandations métier pour maximiser le retour sur investissement (ROI) sous contraintes budgétaires.
-Mettre en production locale un tableau de bord interactif d'aide à la décision.
+## 🏗️ Méthodologie & Pipeline Data
+Le projet suit une démarche de Data Science complète, de l'exploration brute au déploiement :
 
-📊 Données
-Le jeu de données utilisé (bank-full.csv) provient de l'UCI Machine Learning Repository. Il contient plus de 45 000 instances et regroupe des informations démographiques, financières et l'historique de contact des clients.
+### 1. Nettoyage & Préparation (ETL)
+- **Traitement des valeurs aberrantes** : Utilisation de la méthode de l'écart interquartile (IQR) sur la variable `balance` pour éviter de fausser les moyennes par des profils atypiques.
+- **Gestion des données manquantes** : Traitement des valeurs `unknown` par suppression ou réétiquetage (ex: "jamais_contacté").
+- **Ingénierie des caractéristiques** : Encodage des variables catégorielles (One-Hot Encoding) pour la modélisation.
 
-🛠️ Méthodologie & Technologies (R)
-Ce projet suit la méthodologie CRISP-DM:
-Préparation : Nettoyage des données, traitement des "unknown" et suppression des valeurs aberrantes sur les soldes bancaires via la méthode de l'écart interquartile (IQR).
-Analyse Statistique : Découverte des segments prometteurs grâce aux visualisations (ggplot2) et validation mathématique (Test du Khi-Deux).
-Modélisation (Machine Learning) : Encodage, normalisation et entraînement d'un modèle KNN ($k=5$). 
-Utilisation du sous-échantillonnage (undersampling) pour pallier le déséquilibre des classes.
-Évaluation : Analyse de la Matrice de Confusion avec un focus sur la métrique de Précision (plutôt que l'Accuracy) pour répondre aux enjeux de coûts marketing de la banque.
-Déploiement : Création d'une application R Shiny interactive pour simuler l'impact de différents critères de ciblage.
+### 2. Analyse Exploratoire & Statistique (EDA)
+- **Segmentation Métier** : Identification des étudiants et retraités comme cibles prioritaires.
+- **Tests de Corrélation** : Test du **Khi-Deux ($\chi^2$)** pour valider statistiquement l'influence du métier et de l'éducation sur la souscription ($p\text{-value} < 0.05$).
+- **Visualisation Bivariée** : Analyse de la relation entre l'âge, le solde bancaire et le taux de succès via `ggplot2`.
 
-💡 Résultats & Recommandations Stratégiques
-Ciblage optimal : Les données montrent que les étudiants, les retraités, ainsi que les clients sans prêt immobilier en cours présentent les taux de conversion les plus élevés.
-Efficacité multipliée par 5 : Le taux de succès naturel d'un appel à l'aveugle est de ~11,7%. 
-En utilisant les prédictions du modèle KNN, la Précision monte à plus de 58%, permettant de réduire drastiquement les coûts du centre d'appels tout en maximisant les signatures.
+### 3. Modélisation & Machine Learning
+- **Algorithme** : Implémentation du **KNN (K-Nearest Neighbors)** avec $k=5$.
+- **Évaluation** : Utilisation d'une matrice de confusion pour mesurer la performance.
+- **Résultat métier** : Le modèle atteint une **précision de 58%** sur les prédictions positives, soit un taux **5 fois supérieur** au taux de conversion naturel (11.7%).
 
-🚀 Comment lancer le projet ?
-Cloner ce dépôt.
-Ouvrir le script principal sous RStudio.
-S'assurer d'avoir installé les librairies suivantes : ggplot2, class, shiny.
-Modifier le chemin d'accès au fichier CSV lors de l'importation (read.csv2).
-Exécuter le code. 
-Le tableau de bord interactif s'ouvrira à la toute fin du script.
+### 4. Déploiement Interactif (Shiny)
+- Création d'une application **R Shiny** permettant aux décideurs de simuler des segments de clientèle (âge, métier, solde) et d'obtenir instantanément le potentiel de conversion.
+
+## 🛠️ Stack Technique
+- **Langage** : R
+- **Bibliothèques** : `ggplot2`, `class` (ML), `shiny` (Web App), `stats`.
+
+## 🚀 Comment utiliser ce projet
+1. **Cloner le repo** : `git clone https://github.com/votre-pseudo/votre-repo.git`
+2. **Installation** : Assurez-vous d'avoir les packages installés : 
+   ```r
+   install.packages(c("ggplot2", "class", "shiny"))
