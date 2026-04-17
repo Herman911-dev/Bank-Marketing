@@ -1,9 +1,9 @@
-# 🏦 Analyse Marketing & Prédiction de Souscription Bancaire (R)
+#  Analyse Marketing & Prédiction de Souscription Bancaire (R)
 
-## 🎯 Objectif du Projet
+##  Objectif du Projet
 Ce projet vise à analyser et prédire le comportement des clients suite à des campagnes de démarchage téléphonique pour un dépôt à terme. L'enjeu est d'identifier les profils les plus susceptibles de souscrire afin d'optimiser le **ROI (Retour sur Investissement)** des campagnes marketing.
 
-## 🏗️ Méthodologie & Pipeline Data
+##  Méthodologie & Pipeline Data
 Le projet suit une démarche de Data Science complète, de l'exploration brute au déploiement :
 
 ### 1. Nettoyage & Préparation (ETL)
@@ -24,11 +24,11 @@ Le projet suit une démarche de Data Science complète, de l'exploration brute a
 ### 4. Déploiement Interactif (Shiny)
 - Création d'une application **R Shiny** permettant aux décideurs de simuler des segments de clientèle (âge, métier, solde) et d'obtenir instantanément le potentiel de conversion.
 
-## 🛠️ Stack Technique
+##  Stack Technique
 - **Langage** : R
 - **Bibliothèques** : `ggplot2`, `class` (ML), `shiny` (Web App), `stats`.
 
-## 🚀 Comment utiliser ce projet
+##  Comment utiliser ce projet
 1. **Cloner le repo** : `git clone https://github.com/votre-pseudo/votre-repo.git`
 2. **Installation** : Assurez-vous d'avoir les packages installés : 
    ```r
